@@ -1,0 +1,37 @@
+.toDos {
+  list-style: none; /* Tüm <ul> etiketlerinin liste işaretlerini kaldırır */
+  padding: 0; /* Ekstra boşlukları kaldırır */
+  margin: 0; /* Ekstra boşlukları kaldırır */
+}
+
+.todo {
+  display: flex; /* Liste öğelerini yatay hizalar */
+  align-items: center; /* Öğeleri dikeyde hizalar */
+  margin-bottom: 8px; /* Yapılacak işler arasına boşluk ekler */
+  position: relative; /* Pozisyonu için bir referans çerçevesi sağlar */
+  cursor: pointer; /* İşaretleme yapılabilir olmasını sağlar */
+}
+
+.completed {
+  text-decoration: line-through; /* Yapılan işin üzerini çizer */
+  color: #999; /* Gri renkte görünmesini sağlar */
+}
+
+.remove {
+  margin-left: auto;
+  color: red; /* Çarpı işaretinin rengi */
+  cursor: pointer;
+  text-decoration-line: none;
+}
+
+.remove:hover {
+  font-weight: bold; /* Çarpı işareti üzerine gelindiğinde kalınlaşır  */
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}

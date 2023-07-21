@@ -1,0 +1,28 @@
+<!--
+<h2>Yapılacaklar Listesi</h2>
+
+<input type="text" [(ngModel)]="newToDo" placeholder="Yeni yapılacak iş ekle">
+<button (click)="addToDo()">Ekle</button>
+
+<ul class="toDos">
+    <li class="toDo" *ngFor="let toDo of toDos; let i=index">
+        <ng-container *ngIf ="toDo.completed === false">      
+            <input type="checkbox" [(ngModel)]="toDo.completed" (click)="onCompletedChange(toDo)">
+            <span>{{ toDo.title }}</span>
+            <span class="remove" (click)="remove(toDos)">X</span>
+        </ng-container>
+    </li>
+</ul>
+
+<h2>Tamamlananlar</h2>
+
+<ul class="toDos">
+    <li class="toDo completed" *ngFor="let completedToDo of completedToDos; let i=index" >
+        <ng-container *ngIf="completedToDo.completed === true">
+                <input type="checkbox" [(ngModel)]="completedToDo.completed" (click)="onCompletedChange(completedToDo, i)">
+                <span>{{ completedToDo.title }}</span>
+                <span style="text-decoration-line:none ;" class="removed" (click)="remove(completedToDos)">X</span>
+        </ng-container>
+    </li>
+</ul>
+-->

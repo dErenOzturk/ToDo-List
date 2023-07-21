@@ -1,0 +1,86 @@
+<section class="vh-100" style="background-color: rgb(78, 4, 4)">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+            <p class="mb-2"><span class="h2 me-2">ToDo App</span></p>
+            <p class="text-muted pb-2">
+              {{ currentTime | date : "dd.MM.yyyy HH:mm:ss" }}
+            </p>
+
+            <p class="mb-2"><span class="h2 me-2">Yapılacaklar</span></p>
+
+            <div class="input-group mb-3">
+              <input
+                [(ngModel)]="newToDo"
+                type="text"
+                class="form-control"
+                placeholder="Yeni yapılacak iş ekle"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="button-addon2"
+                (click)="addToDo()"
+              >
+                Ekle
+              </button>
+            </div>
+
+            <ul class="list-group rounded-0 toDos">
+              <li
+                class="list-group-item border-0 d-flex align-items-center ps-0 toDo"
+                *ngFor="let toDo of toDos; let i = index"
+              >
+                <ng-container *ngIf="toDo.completed === false">
+                  <input
+                    class="form-check-input me-3"
+                    type="checkbox"
+                    value=""
+                    aria-label="..."
+                    [(ngModel)]="toDo.completed"
+                    (click)="onCompletedChange(toDo)"
+                  />
+                  <span>{{ toDo.title }}</span>
+                  <span type="button" class="remove btn-close aria-label='Close'" (click)="removeToDo(toDo)"></span>
+                </ng-container>
+              </li>
+            </ul>
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center mx-3 mb-0" style="color: #a2aab7">
+                Developed by DEÖ
+              </p>
+            </div>
+
+            <p class="mb-2"><span class="h2 me-2">Tamamlananlar</span></p>
+
+            <ul class="list-group rounded-0 toDos">
+              <li
+                class="list-group-item border-0 d-flex align-items-center ps-0 toDo completed"
+                *ngFor="let completedToDo of completedToDos; let i = index"
+              >
+                <ng-container *ngIf="completedToDo.completed === true">
+                  <input
+                    class="form-check-input me-3"
+                    type="checkbox"
+                    value=""
+                    aria-label="..."
+                    [(ngModel)]="completedToDo.completed"
+                    (click)="onCompletedChange(completedToDo)"
+                  />
+                  <span>{{ completedToDo.title }}</span>
+                  <span type="button" class="remove btn-close aria-label='Close' " (click)="removeCompleted(completedToDo)"></span>
+                  
+
+                </ng-container>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
